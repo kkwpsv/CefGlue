@@ -4,6 +4,7 @@
     <TargetFrameworks>$(TargetDotnetVersions)</TargetFrameworks>
     <AssemblyName>Xilium.CefGlue.Common.Shared</AssemblyName>
     <RootNamespace>Xilium.CefGlue.Common.Shared</RootNamespace>
+    <Platforms>x64;ARM64;AnyCPU</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
