@@ -167,7 +167,7 @@ namespace Xilium.CefGlue
         private static void CheckVersionByApiHash()
         {
             // find all the libcef.[so/dylib/dll] files inside the appkication folder and its subfolders
-            var libcefs = Directory.GetFiles(Directory.GetCurrentDirectory(), Platform switch
+            var libcefs = Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory, Platform switch
                 {
                     CefRuntimePlatform.MacOS => libcef.DllName + ".dylib",
                     CefRuntimePlatform.Windows => libcef.DllName + ".dll",
@@ -193,7 +193,7 @@ namespace Xilium.CefGlue
             }
             catch (DllNotFoundException dll_ex)
             {
-                throw new NotSupportedException($"Can't find CEF in \"{Directory.GetCurrentDirectory()}\"", dll_ex);
+                throw new NotSupportedException($"Can't find CEF in \"{AppDomain.CurrentDomain.BaseDirectory}\"", dll_ex);
             }
             if (string.IsNullOrEmpty(actual)) throw new NotSupportedException();
 
