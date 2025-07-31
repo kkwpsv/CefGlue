@@ -18,6 +18,7 @@
     <AppHostSourcePath Condition="'$(RuntimeIdentifier)'=='win-x64'">$(MSBuildThisFileDirectory)Assets\apphost_win-x64_9.0.203.exe</AppHostSourcePath>
     <AppHostSourcePath Condition="'$(RuntimeIdentifier)'=='linux-x64'">$(MSBuildThisFileDirectory)Assets\apphost_linux-x64_9.0.5</AppHostSourcePath>
     <AppHostSourcePath Condition="'$(RuntimeIdentifier)'=='linux-arm64'">$(MSBuildThisFileDirectory)Assets\apphost_linux-arm64_9.0.5</AppHostSourcePath>
+    <AppHostSourcePath Condition="'$(RuntimeIdentifier)'=='linux-loongarch64'">$(MSBuildThisFileDirectory)Assets\apphost_linux-loongarch64_9.0.5</AppHostSourcePath>
   </PropertyGroup>
 
   <ItemGroup>
