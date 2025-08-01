@@ -12,7 +12,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(RuntimeIdentifier)'=='win-x64' or '$(RuntimeIdentifier)'=='linux-x64' or '$(RuntimeIdentifier)'=='linux-arm64'">
+  <PropertyGroup Condition="'$(RuntimeIdentifier)'=='win-x64' or '$(RuntimeIdentifier)'=='linux-x64' or '$(RuntimeIdentifier)'=='linux-arm64' or '$(RuntimeIdentifier)'=='linux-loongarch64'">
     <AppHostDotNetSearch>AppRelative;Global;</AppHostDotNetSearch>
     <AppHostRelativeDotNet>./dotnet</AppHostRelativeDotNet>
     <AppHostSourcePath Condition="'$(RuntimeIdentifier)'=='win-x64'">$(MSBuildThisFileDirectory)Assets\apphost_win-x64_9.0.203.exe</AppHostSourcePath>
