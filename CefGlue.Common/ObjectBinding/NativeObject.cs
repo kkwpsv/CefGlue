@@ -75,10 +75,20 @@ namespace Xilium.CefGlue.Common.ObjectBinding
         private static IDictionary<string, NativeMethod> GetObjectMembers(object obj)
         {
             var methods = obj.GetType().GetMethods(BindingFlags.Instance | BindingFlags.Public).Where(m => !m.IsSpecialName);
-            return methods.ToDictionary(m => ToJavascriptMemberName(m.Name), m => new NativeMethod(m));
+            return methods.ToDictionary(ToJavascriptMemberName, m => new NativeMethod(m));
         }
 
-        private static string ToJavascriptMemberName(string name) =>
-            name.Substring(0, 1).ToLowerInvariant() + name.Substring(1);
+        private static string ToJavascriptMemberName(MethodInfo methodInfo)
+        {
+            if (methodInfo.GetCustomAttribute<JavascriptMemberNameAttribute>() is { } nameAttribute)
+            {
+                return nameAttribute.Name;
+            }
+            else
+            {
+                var name = methodInfo.Name;
+                return name.Substring(0, 1).ToLowerInvariant() + name.Substring(1);
+            }
+        }
     }
 }
